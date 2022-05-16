@@ -21,7 +21,7 @@
             </div>
             <div class="card-footer">
                 <?php if ($_SESSION['user_data']['rol'] == "admin") : ?>
-                    <a class="btn btn-secondary" href="pilotos/edit<?php echo $item['id']?>"><i class="fa fa-solid fa-edit fa-sm"></i></a>
+                    <a class="btn btn-secondary" href="pilotos/edit/<?php echo $item['id']?>"><i class="fa fa-solid fa-edit fa-sm"></i></a>
                     <a class="btn btn-danger" href="pilotos/delete/<?php echo $item['id']?>"><i class="fa fa-solid fa-trash fa-sm"></i></a>
                 <?php endif; ?>
             </div>

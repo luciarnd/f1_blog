@@ -29,6 +29,5 @@ class Pilotos extends Controller{
         }
         $viewmodel = new PilotosModel();
         $viewmodel->delete();
-        header('Location: '.ROOT_URL.'pilotos');
     }
 }

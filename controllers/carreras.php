@@ -11,11 +11,35 @@ class carreras extends Controller {
         if(!isset($_SESSION['is_logged_in'])){
             header('Location: '.ROOT_URL.'home');
         }
-        $viewmodel = new PilotosModel();
+        $viewmodel = new CarrerasModel();
         $viewmodel->delete();
-        header('Location: '.ROOT_URL.'carreras');
     }
 
+    protected function add(){
+        if(!isset($_SESSION['is_logged_in'])){
+            header('Location: '.ROOT_URL.'home');
+        }
+        $viewmodel = new CarrerasModel();
+        $this->returnView($viewmodel->add(), true);
+    }
 
+    protected function edit(){
+        if(!isset($_SESSION['is_logged_in'])){
+            header('Location: '.ROOT_URL.'home');
+        }
+        $viewmodel = new CarrerasModel();
+        $row=$viewmodel->edit();
+        $this->returnView($row, true);
+    }
 
+    protected function circuito()
+    {
+        if (!isset($_SESSION['is_logged_in'])) {
+            header('Location: ' . ROOT_URL . 'home');
+        }
+        $viewmodel = new CarrerasModel();
+        $row=$viewmodel->circuito();
+        $this->returnView($row, true);
+
+    }
 }

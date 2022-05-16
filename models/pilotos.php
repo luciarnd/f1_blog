@@ -50,10 +50,11 @@ class PilotosModel extends Model
         }else{
             $this->query('SELECT * FROM pilotos WHERE id = :id');
             $this->bind(':id', $_GET['id']);
-            $row = $this->single();
-            return $row;
+            $piloto = $this->single();
+            $this->query('SELECT * FROM escuderias');
+            $escuderias= $this->resultSet();
+            return [$piloto,$escuderias];
         }
-        return;
     }
 
     public function delete() {
@@ -62,6 +63,7 @@ class PilotosModel extends Model
             $this->bind(':id', $_GET['id']);
             $this->execute();
         }
+        header('Location: '.ROOT_URL.'pilotos');
     }
 
 

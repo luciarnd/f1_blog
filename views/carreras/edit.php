@@ -1,7 +1,7 @@
-<div id="panel">
+<div id="panel" xmlns="http://www.w3.org/1999/html">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Editar Piloto</h3>
+            <h3 class="panel-title">Editar Carrera</h3>
         </div>
         <div class="panel-body">
             <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
@@ -10,22 +10,14 @@
                     <input type="text" name="nombre" class="form-control" value="<?=$viewmodel[0]['nombre']?>"/>
                 </div>
                 <div class="form-group">
-                    <label>Apellido</label>
-                    <input type="text" name="apellido" class="form-control" value="<?=$viewmodel[0]['apellido']?>"/>
+                    <label>Informacion</label>
+                    <textarea name="informacion" class="form-control" /><?=$viewmodel[0]['informacion']?></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Procedencia</label>
-                    <input type="text" name="procedencia" class="form-control" value="<?=$viewmodel[0]['procedencia']?>"/>
-                </div>
-                <div class="form-group">
-                    <label>Número de coche</label>
-                    <input type="text" name="num_coche" class="form-control" value="<?=$viewmodel[0]['num_coche']?>"/>
-                </div>
-                <div class="form-group">
-                    <label>Escudería</label>
-                    <select name="escuderia" class="form-control">
+                    <label>Piloto Ganador</label>
+                    <select name="id_pilotoganador" class="form-control">
                         <?php foreach ($viewmodel[1] as $option): ?>
-                            <option value="<?=$option['id']?>"><?=$option['nombre']?></option>
+                            <option value="<?=$option['id']?>"><?=$option['nombre'] . ' ' . $option['apellido']?></option>
                         <?php endforeach;?>
                     </select>
                 </div>
@@ -41,3 +33,4 @@
         </div>
     </div>
 </div>
+

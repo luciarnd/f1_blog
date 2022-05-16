@@ -29,6 +29,5 @@ class escuderias extends Controller {
         }
         $viewmodel = new EscuderiasModel();
         $viewmodel->delete();
-        header('Location: '.ROOT_URL.'escuderias');
     }
 }

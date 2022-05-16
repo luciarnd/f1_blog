@@ -10,7 +10,6 @@ class EscuderiasModel extends Model
 
     public function add(){
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
         if(@$post['submit']){
             if(@$post['nombre'] == '' || $post['tipo_motor'] == '' || $post['nom_director'] == '' || $post['img_url'] == ''){
                 Messages::setMsg('Please Fill In All Fields', 'error');
@@ -58,6 +57,7 @@ class EscuderiasModel extends Model
             $this->bind(':id', $_GET['id']);
             $this->execute();
         }
+        header('Location: '.ROOT_URL.'escuderias');
     }
 
 }
